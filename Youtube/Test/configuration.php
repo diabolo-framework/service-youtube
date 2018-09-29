@@ -16,7 +16,7 @@ return array(
         'params' => array(
             'projects' => array(
                 'test' => array(
-                    'key' => 'AIzaSyDTXTo-7ZjXn65b93PrLu2zuvylSSXg4d4',
+                    'key' => '****** YOUR API KEY*****',
                     'proxy' => '127.0.0.1',
                 ),
             )
