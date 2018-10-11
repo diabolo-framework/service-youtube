@@ -45,4 +45,14 @@ class YoutubePlaylistItem extends YoutubeObjectBase {
     public function getVideo() {
         return YoutubeVideo::withProject($this->getProject())->getById($this->getVideoId());
     }
+    
+    /**
+     * @param unknown $playlistIdId
+     * @param unknown $limit
+     * @param unknown $page
+     * @return \X\Service\Youtube\ListResult
+     */
+    public function findByPlaylistId( $playlistIdId, $limit, $page ) {
+        return $this->findByAttributes('playlistId', $playlistIdId, $limit, $page);
+    }
 }

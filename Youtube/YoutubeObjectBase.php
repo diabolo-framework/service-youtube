@@ -77,7 +77,7 @@ abstract class YoutubeObjectBase {
             'maxResults' => $limit,
             'pageToken' => $page,
         );
-        $response = $this->getProject()->call(static::KIND, $params);
+        $response = $this->project->call(static::KIND, $params);
         return $this->setupListResultByListResponse($response);
     }
     

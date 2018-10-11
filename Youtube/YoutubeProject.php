@@ -9,6 +9,10 @@ class YoutubeProject {
     protected $proxyPort = 1080;
     /** @var int */
     protected $proxyType = CURLPROXY_HTTP;
+    /** @var string */
+    protected $apiServer = 'https://www.googleapis.com';
+    /** @var integer */
+    protected $apiServerPort = 443;
     
     /**
      * @param unknown $option
@@ -33,13 +37,13 @@ class YoutubeProject {
      * @return mixed
      */
     public function call( $name, $params=array() ) {
-        $params['key'] = $this->getProject()->getApiKey();
+        $params['key'] = $this->getApiKey();
         $params = http_build_query($params);
-        $url = 'https://www.googleapis.com/youtube/v3/'.$name.'?'.$params;
+        $url = $this->apiServer.'/youtube/v3/'.$name.'?'.$params;
         
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_PORT, 443);
+        curl_setopt($ch, CURLOPT_PORT, $this->apiServerPort);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         
         if ( null !== $this->proxy ) {

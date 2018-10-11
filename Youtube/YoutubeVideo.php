@@ -24,6 +24,8 @@ class YoutubeVideo extends YoutubeObjectBase {
     public $defaultLanguage = null;
     /** @var string */
     public $defaultAudioLanguage = null;
+    /** @var string */
+    public $id;
     
     /**
      * @param unknown $chart
